@@ -2,9 +2,9 @@ class HelloController < ApplicationController
   def index
     if request.post?
       @title = "Result"
-      @radio1 = params[:r1]
-      if @radio1
-        @msg = "you checked \"#{@radio1}\"."
+      @s1 = params[:s1]
+      if @s1
+        @msg = "you selected \"#{@s1}\"."
       else
         @msg = "not checked..."
       end
