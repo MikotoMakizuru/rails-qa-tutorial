@@ -1,22 +1,10 @@
 class HelloController < ApplicationController
+  layout "hello"
+
   def index
-    if request.post?
-      @title = "Result"
-      @s1 = params[:s1]
-      if @s1
-        @msg = "you selected: "
-        for val in params["s1"]
-          @msg += val + " "
-        end
-      else
-        @msg = "not selected..."
-      end
-      redirect_to action: :index, check1: @check1,
-        title: @title, msg: @msg
-    else
-      @title = params[:title] || "Index"
-      @msg = params[:msg] || "type text..."
-      @value = params[:check1] == "true" || false
-    end
+    @header = "layout sample"
+    @fooder = "copyight mackey 2026."
+    @title = "New Layout"
+    @msg = "this is sample page!"
   end
 end

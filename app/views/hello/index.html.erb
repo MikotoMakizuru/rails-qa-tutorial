@@ -1,7 +1,1 @@
-<h1 class="display-4"><%= @title %></h1>
 <p><%= @msg %></p>
-<%= form_with method: :post do |form| %>
-  <%= form.select :s1,
-      ["Windows", "macOS", "Linux"], size:5, multiple: true, class: "form-control" %>
-  <%= form.submit "Send", class: "btn btn-primary" %>
-<% end %>
