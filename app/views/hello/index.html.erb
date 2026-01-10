@@ -1,9 +1,6 @@
 <h1 class="display-4"><%= @title %></h1>
 <p><%= @msg %></p>
 <%= form_with method: :post do |form| %>
-  <%= form.radio_button :r1, "radio_1" %>
-  <%= form.label :r1_radio_1, "Radio Button 1" %><br>
-  <%= form.radio_button :r1, "radio_2" %>
-  <%= form.label :r1_radio_2, "Radio Button 2" %><br>
+  <%= form.select :s1, ["Windows", "macOS", "Linux"] %>
   <%= form.submit "Send", class: "btn btn-primary" %>
 <% end %>
