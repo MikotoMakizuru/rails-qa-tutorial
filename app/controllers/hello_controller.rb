@@ -4,9 +4,12 @@ class HelloController < ApplicationController
       @title = "Result"
       @s1 = params[:s1]
       if @s1
-        @msg = "you selected \"#{@s1}\"."
+        @msg = "you selected: "
+        for val in params["s1"]
+          @msg += val + " "
+        end
       else
-        @msg = "not checked..."
+        @msg = "not selected..."
       end
       redirect_to action: :index, check1: @check1,
         title: @title, msg: @msg
