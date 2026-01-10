@@ -1,4 +1,4 @@
-# rails-qa-tutorial
+### rails-qa-tutorial
 
 # Wath's this?
 Q&A site created for learning Rails 8.0
