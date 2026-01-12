@@ -1,21 +1,33 @@
 class HelloController < ApplicationController
   layout "hello"
+  @@contacts = []
 
-  def index
+  def initialize
+    super
     @header = "layout sample"
     @fooder = "copyight mackey 2026."
-    @title = "Session sample"
+    @title = "ActiveModel sample"
+  end
 
+  def index
+    @contacts = @@contacts
     if request.post?
-      if params[:name].blank?
-        flash[:notice] = "Please input your name!"
+      @contact = Contact.new(contact_params)
+      if @contact.valid?
+        @msg = "Contact data has been registered."
+        @contacts << @contact
+        redirect_to action: "index", title: @title, msg: @msg
       else
-        @msg = "Hello #{params[:name]}!"
-        flash[:notice] = "登録が完了しました！"
+        @msg = "Contact data has not been registered!"
+        render :index, status: :unprocessable_entity
       end
-      redirect_to action: "index", title: @title
     else
-      @msg = params[:msg]? params[:msg] : "Sample flash."
+      @contact = Contact.new()
+      @msg = params[:msg]? params[:msg] : "Please input name & email:"
     end
+  end
+
+  def contact_params
+    params.require(:contact).permit(:name, :email)
   end
 end
