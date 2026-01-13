@@ -9,7 +9,19 @@
     <td><%= person.id %></td>
     <td><a href="/people/<%= person.id %>">
       <%= person.name %></a><td>
-    <td><a href="/people/edit/<%= person.id %>">Edit</a></td>
+    <td><a href="/people/edit/<%= person.id %>">
+      Edit</a>&nbsp;&nbsp;
+    <a href="javascript:delData(<%= person.id %>)">
+        Delete</a></td>
     </tr>
   <% end %>
 </table>
+
+<script>
+function delData(num){
+  if (confirm("このデータを削除しますか？")) {
+    document.location = "/people/delete/" + num;
+  }
+  return false;
+}
+</script>
