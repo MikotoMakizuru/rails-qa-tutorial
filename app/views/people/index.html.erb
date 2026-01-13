@@ -2,17 +2,14 @@
 <p><%= @msg %></p>
 <table class="table">
   <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Age</th>
-    <th>Mail</th>
+    <th>ID</th><th>Name</th>
   </tr>
   <% @data.each do |person| %>
     <tr>
       <td><%= person.id %></td>
-      <td><%= person.name %></td>
-      <td><%= person.age %></td>
-      <td><%= person.mail %></td>
+      <td><a href="/people/<%= person.id %>">
+        <%= person.name %></a><td>
+      </td>
     </tr>
   <% end %>
 </table>
